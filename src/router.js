@@ -2,8 +2,8 @@ import { h } from 'hyperapp'
 
 export function router(routes) {
   return function (app) {
-    return function (props) {
-      const actions = app(enhance(props))
+    return function (props, container) {
+      const actions = app(enhance(props), container)
 
       window.addEventListener('popstate', function () {
         actions.router.set({})
